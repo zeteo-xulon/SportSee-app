@@ -1,11 +1,100 @@
 :root {
+  --backgroundcolor-primary: #000000;
+  --backgroundcolor-secondary : #FFFFFF;
+
+  --textcolor-primary: #000000;
+  --textcolor-secondary: #FFFFFF;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  
 
+  display: flex;
+  flex-flow: column nowrap;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html{
+  height: 100%;
+}
+#root{
+  height: 100%;
+}
+body{
+  height: 100%;
+}
+
+/*==============================================*/
+/*                  HEADER                      */
+/*==============================================*/
+.header{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  background-color: var(--backgroundcolor-primary);
+  padding: 1rem;
+}
+.logo{}
+
+.nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+.nav-menu{
+
+  text-decoration: none;
+  color: var(--textcolor-secondary);
+}
+
+/*==============================================*/
+/*                  MAIN                        */
+/*==============================================*/
+
+.main{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 100%;
+}
+
+
+/*======== MENU BAR ========*/
+.menu-bar{
+  height: 100%;
+  background-color: var(--backgroundcolor-primary);
+}
+.menu-bar-list{
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+.list-item{}
+.list-item-img{}
+.copyright{
+  color: var(--textcolor-secondary);
+  transform: rotate(90deg)
+}
+
+
+/*======== MAIN USER ========*/
+
+.user-container{}
+
+
+.user-welcome{}
+.username{}
+.user-objective-text{}
+
+
