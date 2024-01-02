@@ -31,6 +31,7 @@ html{
 }
 body{
   height: 100%;
+  overflow: hidden;
 }
 
 /*==============================================*/
@@ -72,7 +73,12 @@ body{
 
 /*======== MENU BAR ========*/
 .menu-bar{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
+  width: 6.1%;
   background-color: var(--backgroundcolor-primary);
 }
 .menu-bar-list{
@@ -84,17 +90,23 @@ body{
 .list-item-img{}
 .copyright{
   color: var(--textcolor-secondary);
-  transform: rotate(90deg)
+  transform: rotate(90deg) translate(-200px, 0px);
 }
 
 
 /*======== MAIN USER ========*/
 
-.user-container{}
+.user-container{
+  height: 80%;
+  width: 100%;
+}
 
 
 .user-welcome{}
 .username{}
 .user-objective-text{}
 
-
+.user-activity {
+  height: 100%;
+  width: 100%;
+}

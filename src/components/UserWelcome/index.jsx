@@ -1,15 +1,15 @@
-import { useState } from "react"
+import { useContext } from "react";
+import { DataContext } from "../DataProvider";
 
 export default function UserWelcome(){
-    const [userName, setUserName] = useState("userName");
-    const [userObjectiveText, setUserObjectiveText] = useState("Félicitation ! Vous avez explosé vos objectifs hier 👏")
+    const { userInfo } = useContext(DataContext);
 
     return(
         <div className="user-welcome">
             <h1 className="username">
-                Bonjour {userName}
+                Bonjour {  userInfo?.userInfos?.firstName + " " + userInfo?.userInfos?.lastName  }
             </h1>
-            <p className="user-objective-text">{userObjectiveText}</p>
+            <p className="user-objective-text">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         </div>
     )
 }
