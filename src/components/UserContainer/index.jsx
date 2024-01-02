@@ -1,11 +1,12 @@
 import UserWelcome from "../UserWelcome";
-import Activity from "../Activity";
+import UserGraphicAndLoss from "../UserGraphicAndLoss";
+
 
 export default function UserContainer(){
     return(
         <section className="user-container">
             <UserWelcome />
-            <Activity />
+            <UserGraphicAndLoss />
         </section>
     )
 }

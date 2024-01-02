@@ -21,7 +21,7 @@ export default function MenuBar(){
                     <img src={weightbar} className="list-item-img" alt="icone d'une barre de poids"/>
                 </li>
             </ul>
-            <p className="copyright">Copiryght, SportSee 2020</p>
+            <p className="copyright">Copyright, SportSee 2020</p>
         </section>
     )
 }

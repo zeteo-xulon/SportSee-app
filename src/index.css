@@ -72,25 +72,42 @@ body{
 
 
 /*======== MENU BAR ========*/
-.menu-bar{
+.menu-bar {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
   align-items: center;
   height: 100%;
   width: 6.1%;
   background-color: var(--backgroundcolor-primary);
 }
+
 .menu-bar-list{
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
+  justify-content: center;
+  gap: 2rem;
   height: 100%;
+  bottom: 10%;
 }
-.list-item{}
+.list-item{
+  background-color: var(--backgroundcolor-secondary);
+  border-radius: 5px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0px, 0px);
+}
 .list-item-img{}
-.copyright{
+.copyright {
+  position: absolute;
+  bottom: 25%;
   color: var(--textcolor-secondary);
-  transform: rotate(90deg) translate(-200px, 0px);
+  transform: rotate(270deg);
+  width: 400%;
+  font-size: 0.9rem;
 }
 
 
@@ -106,7 +123,30 @@ body{
 .username{}
 .user-objective-text{}
 
-.user-activity {
+.user-graphic-and-loss {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.graphic-container {
+  height: 100%;
+  width: 80%;
+}
+.sub-graphic-container{
+  height: 50%;
+  width: 100%;
+}
+
+.user-activity {
+  height: 50%;
+  width: 100%;
+}
+.user-average-session {
+  height: 100%;
+  width: 100%;
+}
+.loss{
+  width: 20%;
+  height: 100%;
 }

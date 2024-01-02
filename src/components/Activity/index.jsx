@@ -7,16 +7,14 @@ export default function Activity(){
     const [activities, setActivities] = useState();
     
 
-    useEffect(()=>{
-        if(userActivity != undefined) { setActivities(userActivity?.sessions) }
-    },[userActivity])
+    useEffect(()=>{ if(userActivity != undefined) { setActivities(userActivity?.sessions) } },[userActivity])
 
     return(
         <div className="user-activity">
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart width={835} height={320} data={activities}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="day" />
+                    <XAxis dataKey="day"/>
                     <YAxis yAxisId="left" orientation="left" stroke="#282D30" />
                     <YAxis yAxisId="right" orientation="right" stroke="#282D30" />
                     <Tooltip />
