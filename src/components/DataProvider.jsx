@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import apiService from "../API/api";
+import Loading from "./Loading";
+
 
 export const DataContext = createContext();
 
@@ -8,6 +10,7 @@ const DataProvider = ({ children}) => {
     const [userActivity, setUserActivity] = useState();
     const [userAverageSession, setUserAverageSession] = useState();
     const [userPerformance, setUserPerformance] = useState();
+    const [isLoading, setIsLoading] = useState(true);
     const id = 12; // ou 18
 
     /** The different routes
@@ -29,6 +32,7 @@ const DataProvider = ({ children}) => {
             setUserActivity(responses[1].data.data);
             setUserAverageSession(responses[2].data.data);
             setUserPerformance(responses[3].data.data);
+            setIsLoading(false)
         } catch (error) {
             console.log(error);
         }
@@ -36,6 +40,8 @@ const DataProvider = ({ children}) => {
 
     useEffect(()=>{ getData() },[])
 
+    if(isLoading){ return <Loading/> }
+    
     return (
         <DataContext.Provider value={{userInfo, userActivity, userAverageSession,userPerformance}}>
             {children}
