@@ -1,26 +1,45 @@
 import { useContext, useState, useEffect } from "react";
 import { DataContext } from "../DataProvider";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function Session(){
-    const {userSession} = useContext(DataContext);
-    const [userAverageSession, setUserAverageSession] = useState();
+    const {userAverageSession} = useContext(DataContext);
+    const [userSession, setUserSession] = useState();
 
-    useEffect(()=>{
-        if(userSession != undefined){ setUserAverageSession(userSession) }
-    },[userSession])
+     // Fonction pour transformer le numéro du jour en initiale
+     const transformDay = (day) => {
+        const days = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
+        return days[day % 7]; // Utilisez modulo 7 pour éviter les erreurs en cas de nombre hors de portée
+    };
+
+    useEffect(() => {
+        if(userAverageSession?.sessions){
+            const transformedSessions = userAverageSession.sessions.map(session => ({
+                ...session,
+                day: transformDay(session.day)
+            }));
+            setUserSession(transformedSessions);
+        }
+    }, [userAverageSession]);
 
     return(
-        <section className="user-average-session">
+        <section className="user-average-session sub-graphic-graphic">
             <ResponsiveContainer width="100%" height="100%">
-                <LineChart width={500} height={300} data={userAverageSession}
+                <LineChart width={500} height={300} data={userSession}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5, }} >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="sessionLength" tick={{ fill: '#FFFFFF', opacity: '0.5' }} />
-                    <YAxis dataKey="day" />
-                    <Tooltip />
+                    <XAxis dataKey="day" tick={{ fill: '#FFFFFF', opacity: '0.5' }} />
+                    <Tooltip dataKey="sessionLength" viewBox={{ x: 0, y: 0, width: 400, height: 400 }} />
                     <Legend />
-                    <Line type="monotone" dataKey="sessionLength" stroke="#82ca9d" />
+                    <Line 
+                    type="monotone" 
+                    fillOpacity={0.5} 
+                    dataKey="sessionLength" 
+                    dot={false} 
+                    stroke="#FFFFFF" 
+                    connectNulls={true}
+                    startOffset={true}
+                    strokeWidth={3}
+                    />
                 </LineChart>
             </ResponsiveContainer>
         </section>

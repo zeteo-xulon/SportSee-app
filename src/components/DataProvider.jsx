@@ -1,7 +1,5 @@
 import { createContext, useState, useEffect } from "react";
 import apiService from "../API/api";
-import Loading from "./Loading";
-
 
 export const DataContext = createContext();
 
@@ -27,6 +25,28 @@ const DataProvider = ({ children}) => {
                 apiService.getUserAverageSessions(id),
                 apiService.getUserPerformance(id)
             ]);
+            // Promise.allSettled([
+            //     apiService.getUser(id),
+            //     apiService.getUserActivity(id),
+            //     apiService.getUserAverageSessions(id),
+            //     apiService.getUserPerformance(id)
+            // ]).then((results) =>
+            //    results.forEach((result,index) => {
+            //     if(result.status=="fulfilled" && index==0){
+            //         setUserInfo(result.value.data.data);
+            //     }
+            //     if(result.status=="fulfilled" && index==1){
+            //         setUserActivity(result.value.data.data);
+            //     }
+            //     if(result.status=="fulfilled" && index==1){
+            //         setUserAverageSession(result.value.data.data);
+            //     }
+            //     if(result.status=="fulfilled" && index==1){
+            //         setUserPerformance(result.value.data.data);
+            //     }
+            //     setIsLoading(false);
+            //    }),
+            //   );
 
             setUserInfo(responses[0].data.data);
             setUserActivity(responses[1].data.data);
@@ -40,8 +60,8 @@ const DataProvider = ({ children}) => {
 
     useEffect(()=>{ getData() },[])
 
-    if(isLoading){ return <Loading/> }
-    
+    if(isLoading){ return null }
+
     return (
         <DataContext.Provider value={{userInfo, userActivity, userAverageSession,userPerformance}}>
             {children}

@@ -1,5 +1,6 @@
+import { lazy } from "react";
 import Header from "./components/Header";
-import MainContainer from "./components/MainContainer";
+const MainContainer = lazy(() => import("./components/MainContainer"))
 
 export default function App() {
   return (

@@ -1,26 +1,22 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext} from "react";
 import { DataContext } from "../DataProvider";
 import LossKey from "../LossKey";
+import flame from "../../assets/flame.svg";
+import meat from "../../assets/meat.svg";
+import apple from "../../assets/apple.svg";
+import burger from "../../assets/burger.svg";
 
 export default function Loss(){
     let { userInfo } = useContext(DataContext);
-    const [info, setInfo] = useState();
-    
+    let lossData = [];
+    let iconArray = [ flame, meat, apple, burger ]
 
-    useEffect(()=>{ if(userInfo != undefined) { 
-        let userInfoItems = userInfo?.keyData;
-        let userInfoObjectTransformedInArray = []
-        for(let [name, value] of Object.entries(userInfoItems)){ userInfoObjectTransformedInArray.push({name, value}) }
-        setInfo(userInfoObjectTransformedInArray) 
-    } },[userInfo])
+    for (let [name, value] of Object.entries(userInfo.keyData)){ lossData.push({name,value}) }
+    lossData.map((element,i)=> element.src = iconArray[i])
 
     return(
         <aside className="loss">
-            {/* {
-                info.map((e)=> {
-                    <LossKey props={e} />
-                })
-            } */}
+            { lossData.map((e,i)=> <LossKey key={'losskey'+i} props={e} /> ) }
         </aside>
     )
 }

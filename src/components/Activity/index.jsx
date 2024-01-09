@@ -2,11 +2,11 @@ import { useContext, useState, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { DataContext } from "../DataProvider";
 
+
 export default function Activity(){
     let { userActivity } = useContext(DataContext);
     const [activities, setActivities] = useState();
     
-
     useEffect(()=>{ if(userActivity != undefined) { setActivities(userActivity?.sessions) } },[userActivity])
 
     return(
