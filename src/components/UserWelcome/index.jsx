@@ -7,7 +7,7 @@ export default function UserWelcome(){
     return(
         <div className="user-welcome">
             <h1 className="username">
-                Bonjour {  userInfo?.userInfos?.firstName + " " + userInfo?.userInfos?.lastName  }
+                Bonjour <span className="username-name">{  userInfo?.userInfos?.firstName + " " + userInfo?.userInfos?.lastName  }</span>
             </h1>
             <p className="user-objective-text">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         </div>

@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { DataContext } from "../DataProvider";
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function Session(){
     const {userAverageSession} = useContext(DataContext);
@@ -31,14 +31,13 @@ export default function Session(){
                     <Tooltip dataKey="sessionLength" viewBox={{ x: 0, y: 0, width: 400, height: 400 }} />
                     <Legend />
                     <Line 
-                    type="monotone" 
+                    type="natural" 
                     fillOpacity={0.5} 
                     dataKey="sessionLength" 
                     dot={false} 
                     stroke="#FFFFFF" 
                     connectNulls={true}
-                    startOffset={true}
-                    strokeWidth={3}
+                    strokeWidth={2}
                     />
                 </LineChart>
             </ResponsiveContainer>

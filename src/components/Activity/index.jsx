@@ -13,14 +13,36 @@ export default function Activity(){
         <div className="user-activity">
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart width={835} height={320} data={activities}>
-                    <CartesianGrid strokeDasharray="3 3" />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis dataKey="day"/>
-                    <YAxis yAxisId="left" orientation="left" stroke="#282D30" />
+                    <YAxis yAxisId="left" orientation="left" stroke="#282D30" hide />
                     <YAxis yAxisId="right" orientation="right" stroke="#282D30" />
                     <Tooltip />
-                    <Legend />
-                    <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" name="Poids (kg)" radius={[10, 10, 0, 0]} />
-                    <Bar yAxisId="right" dataKey="calories" fill="#E60000" name="Calories Brûlées (Kcal)" radius={[10, 10, 0, 0]} />
+                    <Legend 
+                    verticalAlign="top" 
+                    align="right" 
+                    height={100} 
+                    
+                    />
+                    
+                    <Bar 
+                    yAxisId="left" 
+                    dataKey="kilogram" 
+                    fill="#282D30" 
+                    name="Poids (kg)" 
+                    radius={[10, 10, 0, 0]} 
+                    barSize={10}
+                    />
+
+                    <Bar 
+                    yAxisId="right" 
+                    dataKey="calories" 
+                    fill="#E60000" 
+                    name="Calories Brûlées (Kcal)" 
+                    radius={[10, 10, 0, 0]} 
+                    barSize={10}
+                    />
+
                 </BarChart>
             </ResponsiveContainer>
         </div>

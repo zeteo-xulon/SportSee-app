@@ -9,10 +9,15 @@ export default function LossKey(props){
 
     return(
         <div className="losskey">
-            <img src={lossKey?.props?.src} alt="food" className="losskey-icon" />
+            <img 
+            src={lossKey?.props?.icon?.src} 
+            alt="food" 
+            className="losskey-icon" 
+            style={{backgroundColor: lossKey?.props?.icon?.bgcolor}}
+            />
             <div className="losskey-text-container">
-                <h3 className="losskey-title">{lossKey?.props?.name}</h3>
-                <p className="losskey-text">{lossKey?.props?.value}</p>    
+                <h3 className="losskey-title">{lossKey?.props?.value}</h3>
+                <p className="losskey-text">{lossKey?.props?.name}</p>    
             </div>
         </div>
     )
