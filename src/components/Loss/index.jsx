@@ -16,6 +16,7 @@ export default function Loss(){
         {src: burger, bgcolor: "rgba(253, 81, 129, 0.1)"} 
     ]
 
+
     for (let [name, value] of Object.entries(userInfo.keyData)){ lossData.push({name,value}) }
     lossData.map((element,i)=> element.icon = iconArray[i])
 

@@ -20,16 +20,29 @@ export default function Performance(){
     return(
         <div className="performance sub-graphic-graphic">
              <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={performance}>
-                    <PolarGrid 
-                    radialLines={false} />
+
+                <RadarChart 
+                cx="50%" 
+                cy="50%" 
+                outerRadius="80%" 
+                data={performance}>
+
+                    <PolarGrid radialLines={false} />
                     <PolarAngleAxis dataKey="value" angle={30} />
                     <PolarRadiusAxis 
                     axisLine={false}
                     tick={false}
                     />
-                    <Radar dataKey="value" stroke="none" fill="#FF0101B2" fillOpacity={0.8} />
+
+                    <Radar 
+                    dataKey="value" 
+                    stroke="#FF0101B2" 
+                    fill="#FF0101B2" 
+                    fillOpacity={0.6} 
+                    />
+
                 </RadarChart>
+                
             </ResponsiveContainer>
         </div>
     )

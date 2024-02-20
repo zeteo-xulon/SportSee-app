@@ -4,33 +4,25 @@ import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts
 
 export default function Score(){
     let {userInfo} = useContext(DataContext);
-    const [score, setScore] = useState();
+    const [score, setScore] = useState([{name: 'score', value:0}]);
 
     useEffect(()=>{ if(userInfo != undefined) { 
         const scoreSelected = userInfo?.todayScore || userInfo?.score;
-        setScore({value: scoreSelected * 100}) } 
+        setScore([{name: 'base', uv: 100, fill:"transparent"},{name: 'score', uv: scoreSelected * 100, fill:"#FF0000"}]) } 
     },[userInfo])
 
 
     return(
         <div className="score sub-graphic-graphic">
             <ResponsiveContainer>
+                <Legend>Score</Legend>
 
-                <RadialBarChart 
-                barSize={15}
-                data={score}
-                innerRadius="30%"
-                outerRadius="100%"
-                startAngle={90}
-                endAngle={450}
-                margin={10}
-                fill="#FF0000"
-                >
-                    <RadialBar dataKey="value" cornerRadius={25} fill="#000000" />
-                </RadialBarChart>
-
+                <RadialBarChart data={score} cx="50%" cy="50%" innerRadius="50%" outerRadius="80%">
+                    <RadialBar dataKey="uv" startAngle={180} barSize={10} cornerRadius={100} />
+                </RadialBarChart> 
+                
                 <div className="score-text-container">
-                    <p className="score-result">{score?.value}%</p>
+                    <p className="score-result">{score[1]?.uv}%</p>
                     <p className="score-text">de votre<br/>objectif</p>
                 </div>
 

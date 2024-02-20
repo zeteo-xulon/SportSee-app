@@ -47,7 +47,6 @@ const DataProvider = ({ children}) => {
             //     setIsLoading(false);
             //    }),
             //   );
-            console.log(responses)
             setUserInfo(responses[0].data.data);
             setUserActivity(responses[1].data.data);
             setUserAverageSession(responses[2].data.data);

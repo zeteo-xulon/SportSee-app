@@ -172,7 +172,9 @@ body{
 .performance{
   background-color: var(--backgroundcolor-primary);
 }
-.score{}
+.score{
+  background-color: var(--backgroundcolor-fourth);
+}
 .score-text-container {
   position: absolute;
   top: 50%;
